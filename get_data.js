@@ -17,7 +17,7 @@ var queryFmt = 'YYYY-MM-DDTHH:mm:ss-0800',  // api time format as a moment-forma
     fileFmt  = 'YYYY_MM_DDTHH_mm_ss',   // for the filename
     debugFmt = 'HH:mm:ss',  // for console.logging status updates
     baseUrl  = 'http://sensor-api.localdata.com/api/v1/aggregations',
-    interval = 60 * 1000;  // 60 min * 1000ms
+    interval = 60 * 60 * 1000;  // 60 min * 60 sec * 1000ms
 
 // querystring parameters
 var query = {
