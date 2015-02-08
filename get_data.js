@@ -57,7 +57,7 @@ var get = function (url, params, filename, debugInfo, error) {
 };
 
 var getAllSensorData = function () {
-  var toDate   = moment(),
+  var toDate   = moment().subtract(1, 'day'),  // AWS EC2 thinks it's tomorrow, so subtract a day if we're running this on an instance ???
       fromDate = toDate.clone().subtract(1, 'hour');
 
   ids.forEach(function (d) {
@@ -78,6 +78,6 @@ var getAllSensorData = function () {
 };
 
 // FIXME something better than setInterval
-// setInterval(getAllSensorData, interval);
-getAllSensorData();
+setInterval(getAllSensorData, interval);
+// getAllSensorData();
 
