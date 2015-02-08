@@ -78,6 +78,6 @@ var getAllSensorData = function () {
 };
 
 // FIXME something better than setInterval
-setInterval(getAllSensorData, interval);
-// getAllSensorData();
+// setInterval(getAllSensorData, interval);
+getAllSensorData();
 
