@@ -16,7 +16,7 @@ console.log('welcome to the show');
 var queryFmt = 'YYYY-MM-DDTHH:mm:ss-0800',  // api time format as a moment-formatted string
     fileFmt  = 'YYYY_MM_DDTHH_mm_ss',   // for the filename
     debugFmt = 'HH:mm:ss',  // for console.logging status updates
-    baseUrl  = 'http://sensor-api.localdata.com/api/v1/aggregations',
+    baseUrl  = 'http://sensor-api.localdata.com/api/v1/aggregations/',
     interval = 60 * 60 * 1000;  // 60 min * 60 sec * 1000ms
 
 // querystring parameters
@@ -24,6 +24,7 @@ var query = {
   fields: 'temperature,light,humidity,dust,airquality_raw,sound',
   count: 1000,  // not really necessary
   resolution: '5m',
+  op: 'mean',
   from: null, // earlier/start date
   before: null // later/end date
 };
@@ -77,6 +78,6 @@ var getAllSensorData = function () {
 };
 
 // FIXME something better than setInterval
-// setInterval(getAllSensorData, interval);
-getAllSensorData();
+setInterval(getAllSensorData, interval);
+// getAllSensorData();
 
